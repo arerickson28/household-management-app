@@ -1,0 +1,29 @@
+<!-- Right Side Menu -->
+<div class="">
+    <div class="">
+        <h2>{{name}} Groups</h2>
+    </div>
+    <div class="">
+        {{#each people}}
+        <button class="" value="{{id}}">{{groupName}}</button>
+        {{/each}}
+    </div>
+</div>
+
+<!-- Left Side Menu -->
+<div class="">
+    <form class="">
+        <label for="">Search for a Group to Join &#128269;</label>
+        <input class="" type="text" id="search-group-name" />
+    </form>
+    <div class="">
+        {{#if admin}}
+        <div class="table-admin"><span class="">{{user}}</span><span class="">{{}}</span></div>
+        {{else}}
+            <div class=""
+        {{/if}}
+        {{groupName}}
+    </div>
+
+
+</div>
