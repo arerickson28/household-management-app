@@ -4,15 +4,16 @@
         <h2>{{name}} Groups</h2>
     </div>
     <div class="">
-        {{#each people}}
-        <button class="" value="{{id}}">{{groupName}}</button>
+        {{#each groups AS |group|}}
+        {{#if type}}
+        <button class="" value="{{group.id}}">{{group.group_name}}</button>
         {{/each}}
     </div>
 </div>
 
 <!-- Left Side Menu -->
 <div class="">
-    <form class="">
+    <form class="new-group-search">
         <label for="group-search">Search for a Group to Join &#128269;</label>
         <input class="" type="text" id="search-group-name" />
     </form>
