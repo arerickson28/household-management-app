@@ -13,14 +13,14 @@
 <!-- Left Side Menu -->
 <div class="">
     <form class="">
-        <label for="">Search for a Group to Join &#128269;</label>
+        <label for="group-search">Search for a Group to Join &#128269;</label>
         <input class="" type="text" id="search-group-name" />
     </form>
     <div class="">
         {{#if admin}}
         <div class="table-admin"><span class="">{{user}}</span><span class="">{{}}</span></div>
         {{else}}
-            <div class=""
+            <div class="table-member"><span class="">{{user}}</span></div>
         {{/if}}
         {{groupName}}
     </div>
