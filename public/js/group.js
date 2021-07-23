@@ -17,10 +17,9 @@ const newSearchHandler = async (event) => {
             alert('Failed to create project');
           }
     }
+};
 
-}
-
-
+const listGroupMembers = document.querySelector('#group-members');
 
 
 

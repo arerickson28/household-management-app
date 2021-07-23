@@ -5,7 +5,7 @@
     </div>
     <div class="">
         {{#each groups AS |group|}}
-        {{#if type}}
+        {{#if group.type}}
         <button class="" value="{{group.id}}">{{group.group_name}}</button>
         {{/each}}
     </div>
@@ -15,11 +15,12 @@
 <div class="">
     <form class="new-group-search">
         <label for="group-search">Search for a Group to Join &#128269;</label>
-        <input class="" type="text" id="search-group-name" />
+        <input class="" type="text" id="group-search" />
     </form>
-    <div class="">
+    <div class="" id="group-members">
+        {{#each groups}}
         {{#if admin}}
-        <div class="table-admin"><span class="">{{user}}</span><span class="">{{}}</span></div>
+            <div class="table-admin"><span class="">{{user}}</span><span class="">{{}}</span></div>
         {{else}}
             <div class="table-member"><span class="">{{user}}</span></div>
         {{/if}}
