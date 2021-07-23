@@ -1,0 +1,118 @@
+body {
+    margin: 0;
+    background-color: rgb(243, 230, 213);
+}
+
+h1, h2, h3, h4 {
+    margin: 0 ;
+    color: grey ;
+    background-color: white;
+    padding: 8px;
+}
+
+
+nav {
+    background-color: rgb(52, 24, 129);
+    padding-left: 50px;
+    height: 80px ;
+    width: 100%;
+    display: flex ;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#homeMain {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column ;
+    padding: 100px ;
+}
+
+#homeCheckin {
+    background-color: rgb(52, 24, 129);
+    border-radius: 5%;
+    height: 400px;
+    width: 750px ;
+    color: white ;
+    display: flex ;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.home {
+    width: 250px;
+    background-color: grey;
+    height: 275px;
+    display: flex;
+    flex-direction: column ;
+    justify-content: center;
+    align-items: center ;
+}
+
+.vertical-line1 {
+    width: 1px;
+    background-color: white;
+}
+
+.vertical-line2 {
+    width: 3px;
+    background-color: grey;
+}
+
+input {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+form {
+    padding: 10px ;
+    margin-top: 20px ;
+}
+
+#notesMain {
+    display: flex;
+    padding: 25px ;
+}
+
+#listSection {
+    flex-grow: 1;
+    /* height: 200px; */
+    /* border-right: solid;
+    border-width: 3px;
+    border-color: grey; */
+}
+
+#itemSection {
+    flex-grow: 8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* height: 200px ; */
+    
+}
+
+#groupName {
+    padding: 20px;
+    border: solid;
+    border-width: 2px;
+    border-color: goldenrod;
+    margin: 25px ;
+    display: flex ;
+    justify-content: center;
+    align-items: center;
+}
+
+#listName {
+    padding: 20px;
+    margin: 20px ;
+}
+
+.hr2 {
+    margin: 35px ;
+    width: 1000px;
+}
+
+.hr1 {
+    margin: 35px ;
+}
