@@ -42,14 +42,14 @@
             <hr class="hr2">
 
             <div>
-                <button>New Note</button>
+                <button id="newNoteBtn">New Note</button>
             </div>
 
             <div class="listofitems">
 
-                <div class="itemMain">
+                <div class="itemMain hide" id="newNote">
 
-                    <div class="item">
+                    <div class="item" id="newNoteItem">
                         <div class="itemTitle">
                             <input placeholder="Note title">
                         </div>
@@ -60,7 +60,8 @@
                     </div>
 
                     <div class="itemButton">
-                        <button>Create Note</button>
+                        <button id="createNoteBtn">Create Note</button>
+                        <button id="cancelCreateNoteBtn">Cancel</button>
                     </div>
                 </div>                
 
@@ -106,6 +107,6 @@
     </main>
     
 
-
+<script src="notepage.js"></script>
 </body>
 </html>
