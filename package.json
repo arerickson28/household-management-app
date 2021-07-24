@@ -1,5 +1,9 @@
 {
-  "name": "household-managment-app",
+
+  
+
+  "name": "household-management-app",
+
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -26,4 +30,7 @@
     "eslint-config-prettier": "^6.15.0",
     "prettier": "^2.1.2"
   }
-}
+}  
+  
+
+
