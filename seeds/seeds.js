@@ -21,6 +21,7 @@
 
 const seedUser = require('./user-seeds');
 const seedGrocery = require('./grocery-seeds');
+const seedTodo = require('./todo-seeds');
 
 const sequelize = require('../config/connection');
 
@@ -29,6 +30,7 @@ const seedAll = async() => {
 
   await seedUser();
   await seedGrocery();
+  await seedTodo();
 
   process.exit(0);
 }
