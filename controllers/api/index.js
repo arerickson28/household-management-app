@@ -1,9 +1,7 @@
 const router = require('express').Router();
 
-const apiRoutes = require('./api');
-const groupRoutes = require('./groupRoutes.js');
+const groupRoutes = require('./groupRoutes');
 
-router.use('/api', apiRoutes);
 router.use('/groups', groupRoutes);
 
 
