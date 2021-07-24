@@ -11,12 +11,20 @@
 
 <body>
     <nav>
-        <h2>Sign Out</h2>
+        {{#if logged_in}}
+            <a href="/api/groups"><h2>Groups</h2></a> |
+            <button class="no-button" id="logout"><h2>Sign Out</h2></button>
+        {{else}}
+            <a href="/login"><h2>Sign In</h2></a>
+        {{/if}}
     </nav>
     <main id="homeMain">
         {{{ body }}}
     </main>
 
+{{#if logged_in}}
+  <script src="/js/logout.js"></script>
+{{/if}}
 </body>
 
 </html>
