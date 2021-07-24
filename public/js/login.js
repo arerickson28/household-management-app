@@ -1,5 +1,6 @@
 const loginFormHandler = async (event) => {
     event.preventDefault();
+    
     const username = document.querySelector('#user-name-login').value.trim();
     const password = document.querySelector('#password-login').value.trim();
 
@@ -11,7 +12,7 @@ const loginFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/api/groups');
+        document.location.replace('/');
       } else {
         alert(response.statusText);
       }
@@ -22,20 +23,19 @@ const loginFormHandler = async (event) => {
     event.preventDefault();
   
     const username = document.querySelector('#user-name-signup').value.trim();
-    //const email = document.querySelector('#user-email-signup').value.trim();
-    const firstName = document.querySelector('#user-first-signup').value.trim();
-    const lastName = document.querySelector('#user-last-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
+    const first_name = document.querySelector('#user-first-signup').value.trim();
+    const last_name = document.querySelector('#user-last-signup').value.trim();
   
-    if (username && firstName && lastName && password) {
+    if (username && password && first_name && last_name) {
       const response = await fetch('/api/users', {
         method: 'POST',
-        body: JSON.stringify({ username, firstName, lastName, password }),
+        body: JSON.stringify({ username, password, first_name, last_name }),
         headers: { 'Content-Type': 'application/json' },
       });
   
       if (response.ok) {
-        document.location.replace('/api/users');
+        document.location.replace('/');
       } else {
         alert(response.statusText);
       }

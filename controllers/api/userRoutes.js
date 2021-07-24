@@ -17,7 +17,6 @@ router.post('/', async (req, res) => {
 });
 
 router.post('/login', async (req, res) => {
-  console.log("I AM AT THE CORRECT LOGIN");
   try {
     const userData = await User.findOne({ where: { username: req.body.username } });
 
