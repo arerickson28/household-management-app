@@ -1,5 +1,5 @@
 const User = require("./user");
-const Group = require("./group");
+const Group = require("./Group");
 const Grocery = require("./grocery");
 const Todo = require("./todo");
 

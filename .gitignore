@@ -104,3 +104,7 @@ dist
 .tern-port
 #.DS_Store
 .DS_Store
+
+# ignore package-lock.json
+package-lock.json
+
