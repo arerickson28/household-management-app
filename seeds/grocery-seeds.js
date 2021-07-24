@@ -21,6 +21,11 @@ const seedData = [
         quantity: 5,
         user_id: 2,
     },
+    {
+        product: 'cereal',
+        quantity: 4,
+        user_id: 3,
+    },
 ]
 
 const seedGrocery = () => Grocery.bulkCreate(seedData);
