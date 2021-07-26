@@ -17,4 +17,4 @@ Todo.belongsTo(User, {
     onDelete: 'CASCADE'
 })
 
-module.exports = { User, Group, Grocery, Todo };
+module.exports = { User, Grocery, Todo };

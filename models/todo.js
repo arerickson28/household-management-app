@@ -16,7 +16,7 @@ Todo.init(
       },
     },
     task: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING,
       allowNull: false,
     },
   },
