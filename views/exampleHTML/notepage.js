@@ -44,6 +44,13 @@ document.getElementById("createNoteBtn").addEventListener("click", function() {
 
     newitemTitleInput.value = ""
     newitemContentInput.value = ""
+
+    //Clearing List Of Items
+    while (listofitems.childNodes[1]) {
+        listofitems.removeChild(listofitems.childNodes[1]);
+    } ;
+
+    renderList(list1)
 })
 
 document.getElementById("cancelCreateNoteBtn").addEventListener("click", function() {
@@ -71,13 +78,16 @@ function renderList(list) {
 
 
         //h3 here
+        let itemTitle = document.createElement("h3");
+        itemTitle.innerHTML = list[i]["itemTitle"]
+        
 
         let itemContentDiv = document.createElement("div");
         itemContentDiv.setAttribute("class", "itemContent") ;
 
         //p here
         let itemContent = document.createElement("p");
-        itemContent.textContent = list[i]["itemContent"]
+        itemContent.innerHTML = list[i]["itemContent"]
         itemContentDiv.appendChild(itemContent)
 
         let deleteBtnDiv = document.createElement("div");
@@ -85,27 +95,25 @@ function renderList(list) {
 
         //button here
         let deleteBtn = document.createElement("button");
-        deleteBtn.textContent("Delete");
-        deleteBtnDiv.appendChild(deleteBtn)
+        deleteBtn.innerHTML = "Delete"
+        
 
+        //stitch together html
+        itemTitleDiv.appendChild(itemTitle)
+        item.appendChild(itemTitleDiv)
+
+        itemContentDiv.appendChild(itemContent)
+        item.appendChild(itemContentDiv)
+
+
+        deleteBtnDiv.appendChild(deleteBtn)
+        item.appendChild(deleteBtnDiv)
+
+        itemMain.appendChild(item)
+
+        listofitems.appendChild(itemMain)
 
     }
 }
 
-
-<div class="itemMain">
-
-    <div class="item">
-        <div class="itemTitle">
-            <h3>&lt Item 1 &gt</h3>
-        </div>
-
-        <div class="itemContent">
-            <p>Give the dog a bath</p>
-        </div>
-    </div>
-
-    <div class="itemButton">
-        <button>Delete</button>
-    </div>
-</div>
+renderList(list1)
