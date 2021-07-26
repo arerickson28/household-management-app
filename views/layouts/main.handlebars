@@ -1,44 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Houshold</title>
-    <link rel="stylesheet" href="../../public/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
+
 <body>
     <nav>
-        <h2>Sign Out</h2>
+        {{#if logged_in}}
+            <a href="/api/groups"><h2>Groups</h2></a> |
+            <button class="no-button" id="logout"><h2>Sign Out</h2></button>
+        {{else}}
+            <a href="/login"><h2>Sign In</h2></a>
+        {{/if}}
     </nav>
-
     <main id="homeMain">
-        <section id="homeCheckin">
-            <div class="home">
-                <h3>Log In</h3>
-                <form>
-                    <label>Username:</label><br>
-                    <input type="text"><br>
-                    <label>Password:</label><br>
-                    <input type="text">
-                  </form>
-            </div>
-
-            <div class="vertical-line1"></div>
-
-            <div class="home">
-                <h3>Create Account</h3>
-                <form>
-                    <label>Username:</label><br>
-                    <input type="text"><br>
-                    <label>Password:</label><br>
-                    <input type="text">
-                  </form>
-            </div>
-        </section>
+        {{{ body }}}
     </main>
-    
 
-
+{{#if logged_in}}
+  <script src="/js/logout.js"></script>
+{{/if}}
 </body>
+
 </html>

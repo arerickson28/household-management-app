@@ -153,6 +153,15 @@ textarea {
 
 .itemButton {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.itemButton button {
+    margin: 5px;
+}
+
+.hide {
+    display: none;
 }

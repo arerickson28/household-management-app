@@ -18,7 +18,7 @@ const hbs = exphbs.create();
 
 
 const sess = {
-  secret: process.env.SECRET,
+  secret: "whorl-crag",
   cookie: {},
   resave: false,
   saveUninitialized: true,
