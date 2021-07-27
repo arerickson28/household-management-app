@@ -1,26 +1,49 @@
 
-
-let list1 = [
+let lists = [
     {
-        itemTitle: "Give Dog A Bath",
-        itemContent: "Remember to check for ticks"
+        "listName": "list1",
+        "listContent": [
+            {
+                "itemTitle": "Give Dog A Bath",
+                "itemContent": "Remember to check for ticks"
+            },
+            {
+                "itemTitle": "Sweep Patio",
+                "itemContent": "Remember to compost leaves"
+            }
+        ]
     },
     {
-        itemTitle: "Sweep Patio",
-        itemContent: "Remember to compost leaves"
+        "listName": "list2",
+        "listContent": [
+            {
+                "itemTitle": "Get Milk",
+                "itemContent": "2% Preferred"
+            },
+            {
+                "itemTitle": "Get Bread",
+                "itemContent": "Gluten-Free preferred"
+            }
+        ]
     }
+    
 ]
 
 
-
+// let list1 = [
+//     {
+//         itemTitle: "Give Dog A Bath",
+//         itemContent: "Remember to check for ticks"
+//     },
+//     {
+//         itemTitle: "Sweep Patio",
+//         itemContent: "Remember to compost leaves"
+//     }
+// ]
 
 let newitemTitleInput = document.getElementById("newNoteTitleInput");
 
 let newitemContentInput = document.getElementById("newNoteContentInput");
-
-
-
-
 
 document.getElementById("newNoteBtn").addEventListener("click", function() {
 
@@ -65,7 +88,16 @@ console.log("heyooo")
 let listofitems = document.getElementById("listofitems");
 
 function renderList(list) {
-    for (let i= list.length -1; i>=0; i--) {
+    let chosenList ;
+
+    for (y = 0; y < lists.length; y++) {
+        if (lists[y]["listName"] == list) {
+            chosenList = lists[y]["listContent"]
+            console.log(chosenList)
+        }
+    }
+
+    for (let i= chosenList.length -1; i>=0; i--) {
 
         let itemMain = document.createElement("div");
         itemMain.setAttribute("class", "itemMain") ;
@@ -79,7 +111,7 @@ function renderList(list) {
 
         //h3 here
         let itemTitle = document.createElement("h3");
-        itemTitle.innerHTML = list[i]["itemTitle"]
+        itemTitle.innerHTML = chosenList[i]["itemTitle"]
         
 
         let itemContentDiv = document.createElement("div");
@@ -87,7 +119,7 @@ function renderList(list) {
 
         //p here
         let itemContent = document.createElement("p");
-        itemContent.innerHTML = list[i]["itemContent"]
+        itemContent.innerHTML = chosenList[i]["itemContent"]
         itemContentDiv.appendChild(itemContent)
 
         let deleteBtnDiv = document.createElement("div");
@@ -95,6 +127,7 @@ function renderList(list) {
 
         //button here
         let deleteBtn = document.createElement("button");
+        deleteBtn.setAttribute("class", "deleteBtn")
         deleteBtn.innerHTML = "Delete"
         
 
@@ -116,4 +149,42 @@ function renderList(list) {
     }
 }
 
-renderList(list1)
+renderList("list1")
+
+
+let deleteBtns = document.getElementsByClassName("deleteBtn")
+
+
+
+for (let i=0; i < deleteBtns.length; i++) {
+    deleteBtns[i].addEventListener("click", function() {
+
+        let deleteBtnContent = deleteBtns[i].parentNode.previousSibling.firstChild.textContent
+        let deleteBtnTitle = deleteBtns[i].parentNode.previousSibling.previousSibling.firstChild.textContent
+
+        let currentListName = listofitems.getAttribute("class");
+        console.log(currentListName);
+        let currentList ;
+
+        for (z = 0; z < lists.length; z++) {
+            if (lists[z]["listName"] == currentListName) {
+                currentList = lists[z]["listContent"]
+            }
+        }
+        console.log(currentList);
+
+        for (let j = 0; j < currentList.length; j++) {
+            if (currentList[j]["itemTitle"] == deleteBtnTitle && currentList[j]["itemContent"] == deleteBtnContent) {
+                currentList.pop(currentList[j])
+                console.log(currentList)
+                // renderList(currentList)
+            }
+        }
+
+        for (let w = 0; w < lists.length; w++) {
+            if (lists[w]["listName"] == currentListName) {
+                renderList(lists[w]["listName"])
+            }
+        }
+    })
+}
