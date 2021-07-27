@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Grocery, } = require('../../models');
+const { User, Grocery, Todo } = require('../../models');
 
 router.post('/', async (req, res) => {
   try {
@@ -64,7 +64,7 @@ router.get('/:id', (req, res) => {
     where: {
       id: req.params.id,
     },
-    include: [Grocery]
+    include: [Grocery, Todo]
   })
     .then(user => res.json(user))
 })
