@@ -3,14 +3,14 @@ let lists = [
     {
         "listName": "list1",
         "listContent": [
-            {
-                "itemTitle": "Give Dog A Bath",
-                "itemContent": "Remember to check for ticks"
-            },
-            {
-                "itemTitle": "Sweep Patio",
-                "itemContent": "Remember to compost leaves"
-            }
+            // {
+            //     "itemTitle": "Give Dog A Bath",
+            //     "itemContent": "Remember to check for ticks"
+            // },
+            // {
+            //     "itemTitle": "Sweep Patio",
+            //     "itemContent": "Remember to compost leaves"
+            // }
         ]
     },
     {
@@ -61,19 +61,19 @@ document.getElementById("createNoteBtn").addEventListener("click", function() {
     }
     
     
-    list1.push(newItemObj)
+    lists[0]["listContent"].push(newItemObj)
 
-    console.log(list1)
+    console.log(lists[0]["listContent"])
 
     newitemTitleInput.value = ""
     newitemContentInput.value = ""
 
-    //Clearing List Of Items
-    while (listofitems.childNodes[1]) {
-        listofitems.removeChild(listofitems.childNodes[1]);
+    // Clearing List Of Items
+    while (listofitems.childNodes[3]) {
+        listofitems.removeChild(listofitems.childNodes[3]);
     } ;
 
-    renderList(list1)
+    renderList(lists[0]["listContent"])
 })
 
 document.getElementById("cancelCreateNoteBtn").addEventListener("click", function() {
@@ -86,17 +86,18 @@ console.log("heyooo")
 
 
 let listofitems = document.getElementById("listofitems");
-
+let chosenList
 function renderList(list) {
-    let chosenList ;
+    // let chosenList ;
 
     for (y = 0; y < lists.length; y++) {
         if (lists[y]["listName"] == list) {
             chosenList = lists[y]["listContent"]
             console.log(chosenList)
         }
+        console.log(chosenList)
     }
-
+    console.log(chosenList)
     for (let i= chosenList.length -1; i>=0; i--) {
 
         let itemMain = document.createElement("div");
@@ -146,10 +147,15 @@ function renderList(list) {
 
         listofitems.appendChild(itemMain)
 
+        addDeleteListeners()
+
     }
 }
 
 renderList("list1")
+
+
+function addDeleteListeners() {
 
 
 let deleteBtns = document.getElementsByClassName("deleteBtn")
@@ -158,6 +164,7 @@ let deleteBtns = document.getElementsByClassName("deleteBtn")
 
 for (let i=0; i < deleteBtns.length; i++) {
     deleteBtns[i].addEventListener("click", function() {
+
 
         let deleteBtnContent = deleteBtns[i].parentNode.previousSibling.firstChild.textContent
         let deleteBtnTitle = deleteBtns[i].parentNode.previousSibling.previousSibling.firstChild.textContent
@@ -175,9 +182,8 @@ for (let i=0; i < deleteBtns.length; i++) {
 
         for (let j = 0; j < currentList.length; j++) {
             if (currentList[j]["itemTitle"] == deleteBtnTitle && currentList[j]["itemContent"] == deleteBtnContent) {
+                console.log(currentList[j])
                 currentList.pop(currentList[j])
-                console.log(currentList)
-                // renderList(currentList)
             }
         }
 
@@ -187,4 +193,5 @@ for (let i=0; i < deleteBtns.length; i++) {
             }
         }
     })
+}
 }
