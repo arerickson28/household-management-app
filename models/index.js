@@ -3,7 +3,11 @@ const Group = require("./Group");
 const Grocery = require("./grocery");
 const Todo = require("./todo");
 
-User.hasMany(Grocery, Todo, {
+User.hasMany(Grocery, {
+    foreignKey: 'user_id'
+})
+
+User.hasMany(Todo, {
     foreignKey: 'user_id'
 })
 
