@@ -1,5 +1,5 @@
 // const sequelize = require('../config/connection');
-// const { User, Grocery, Todo, Group } = require('../models');
+// const { User, Grocery, Todo } = require('../models');
 
 // const userData = require();
 // const groupData = require();

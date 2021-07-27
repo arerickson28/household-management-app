@@ -8,10 +8,10 @@ Todo.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    group_id: {
+    user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "group",
+        model: "user",
         key: "id",
       },
     },
@@ -22,6 +22,7 @@ Todo.init(
   },
   {
     sequelize,
+    timestamps: false,
     freezeTableName: true,
     underscored: true,
     modelName: "todo",

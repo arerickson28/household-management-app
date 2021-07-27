@@ -4,20 +4,19 @@ const withAuth = require('../../utils/auth');
 
 router.get('/', withAuth, async (req, res) => {
     console.log(req.session.user_id);
+    console.log(req.body);
     try {
-        const userNoteData = await User.findByPk(req.session.user_id, {
-            attributes: { exclude: ['password'] },
+        const noteData = await Todo.findByPk(req.session.user_id, {
+            //attributes: { exclude: ['password'] },
             include: [{
-                model: Todo,
-                as: 'notes'
+                model: User,
+                as: 'user'
             }]
         });
 
-        const userNotes = userNoteData.get({ plain: true });
 
-        res.render('homepage', {
-            ...userNotes,
-            logged_in: true
+        res.render('notepage', {
+            ...noteData,
         });
 
     } catch (err) {
