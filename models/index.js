@@ -1,9 +1,13 @@
 const User = require("./user");
-const Group = require("./Group");
+//const Group = require("./Group");
 const Grocery = require("./grocery");
 const Todo = require("./todo");
 
-User.hasMany(Grocery, Todo, {
+User.hasMany(Grocery, {
+    foreignKey: 'user_id'
+})
+
+User.hasMany(Todo, {
     foreignKey: 'user_id'
 })
 
@@ -17,4 +21,4 @@ Todo.belongsTo(User, {
     onDelete: 'CASCADE'
 })
 
-module.exports = { User, Group, Grocery, Todo };
+module.exports = { User, Grocery, Todo };

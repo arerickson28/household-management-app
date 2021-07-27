@@ -8,13 +8,6 @@ Grocery.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    // group_id: {
-    //   type: DataTypes.INTEGER,
-    //   references: {
-    //     model: "group",
-    //     key: "id",
-    //   },
-    // },
     product: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -34,9 +27,11 @@ Grocery.init(
   },
   {
     sequelize,
+    timestamps: false,
     freezeTableName: true,
     underscored: true,
     modelName: "grocery",
   }
 );
 module.exports = Grocery;
+

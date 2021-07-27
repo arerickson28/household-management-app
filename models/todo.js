@@ -8,20 +8,35 @@ Todo.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    group_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "group",
-        key: "id",
-      },
-    },
+    // group_id: {
+    //   type: DataTypes.INTEGER,
+    //   references: {
+    //     model: "group",
+    //     key: "id",
+    //   },
+    // },
     task: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING,
       allowNull: false,
     },
+    notes: {
+      type: DataTypes.STRING,
+      allowNull: false,
+
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'user',
+        key: 'id'
+      }
+    }
+
   },
   {
     sequelize,
+    timestamps: false,
     freezeTableName: true,
     underscored: true,
     modelName: "todo",

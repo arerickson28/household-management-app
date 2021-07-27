@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Grocery, } = require('../../models');
+const { User, Grocery, Todo } = require('../../models');
 
 router.post('/', async (req, res) => {
   try {
@@ -12,6 +12,7 @@ router.post('/', async (req, res) => {
       res.status(200).json(userData);
     });
   } catch (err) {
+    console.log(err)
     res.status(400).json(err);
   }
 });
@@ -63,8 +64,9 @@ router.get('/:id', (req, res) => {
     where: {
       id: req.params.id,
     },
-    include: [Grocery]
+    include: [Grocery, Todo]
   })
     .then(user => res.json(user))
 })
+
 module.exports = router;
