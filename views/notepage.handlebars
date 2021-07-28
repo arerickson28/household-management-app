@@ -1,5 +1,5 @@
 <main id="notesMain">
-  </section>
+  /* </section>
 
   <div class="vertical-line2"></div>
 
@@ -30,10 +30,65 @@
                   class="btn btn-sm btn-danger"
                   data-id="{{todo.id}}"
                 >DELETE</button>
-              </div>
+              </div> */
+    {{!-- <section id="listSection">
+        <div id="groupName">
+            <h1> Lists </h1>
+        </div>
+
+        <hr class="hr1">
+        <button id="newListBtn">
+            <h2>New List</h2>
+        </button>
+        <hr class="hr1"> --}}
+
+        <div id="listoflists">
+            <div id="createListDiv" class="hide">
+                <input placeholder="List Title">
+                <button id="createListBtn">
+                    <h2>Create List</h2>
+                </button>
+            </div>
+        </div>
+
+    </section>
+
+    <div class="vertical-line2"></div>
+
+    <section id="itemSection">
+        <div>
+            <h1 id="listName"> Todo </h1><br>
+        </div>
+
+        <hr class="hr2">
+
+        <div>
+            <button id="newNoteBtn">
+                <h2>New Note</h2>
+            </button>
+        </div>
+
+        <div class="list1" id="listofitems">
+
+            <div class="itemMain hide" id="newNote">
+
+                <div class="item" id="newNoteItem">
+                    <div class="itemTitle">
+                        <input id="newNoteTitleInput" placeholder="Note title">
+                    </div>
+
+                    <div class="itemContent">
+                        <textarea id="newNoteContentInput" placeholder="Note Content"></textarea>
+                    </div>
+                </div>
+
+                <div class="itemButton">
+                    <button id="createNoteBtn">Create Note</button>
+                    <button id="cancelCreateNoteBtn">Cancel</button>
+                </div>
             </div>
         {{/each}}
   </section>
 </main>
 
-<script src="js/notes.js"></script>
+<script src="/js/notes.js"></script>
