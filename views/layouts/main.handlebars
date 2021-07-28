@@ -1,39 +1,44 @@
+<!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Houshold</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
-  </head>
+</head>
 
-  <body>
+<body>
     <nav>
-      {{#if logged_in}}
+        {{#if logged_in}}
+        <button class="no-button" id="homepage">
+            <h2>Home Page</h2>
+        </button><br />
         <button class="no-button" id="grocery">
-          <h2>Grocery</h2>
+            <h2>Grocery</h2>
         </button><br />
         <button class="no-button" id="todo">
-          <h2>Todo</h2>
+            <h2>Todo</h2>
         </button><br />
         <button class="no-button" id="logout">
-          <h2>Sign Out</h2>
+            <h2>Sign Out</h2>
         </button>
-      {{else}}
-        <a href="/login">
-          <h2>Sign In</h2>
-        </a>
-      {{/if}}
+        {{else}}
+        <button class="no-button" id="login">
+            <h2>Sign In</h2>
+        </button>
+        {{/if}}
     </nav>
     <main id="homeMain">
-      {{{body}}}
+        {{{body}}}
     </main>
 
     {{#if logged_in}}
-      <script src="/js/logout.js"></script>
-      <script src="/js/menu.js"></script>
+    <script src="/js/logout.js"></script>
+    <script src="/js/menu.js"></script>
     {{/if}}
-  </body>
+    <script src="/js/login.js"></script>
+</body>
 
 </html>

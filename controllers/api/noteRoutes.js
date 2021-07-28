@@ -14,9 +14,9 @@ router.get('/', withAuth, async (req, res) => {
             }]
         });
 
-
         res.render('notepage', {
             ...noteData,
+            logged_in: true
         });
 
     } catch (err) {
