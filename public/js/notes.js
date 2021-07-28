@@ -1,33 +1,33 @@
 
-let lists = [
-    {
-        "listName": "list1",
-        "listContent": [
-            {
-                "itemTitle": "Give Dog A Bath",
-                "itemContent": "Remember to check for ticks"
-            },
-            {
-                "itemTitle": "Sweep Patio",
-                "itemContent": "Remember to compost leaves"
-            }
-        ]
-    },
-    {
-        "listName": "list2",
-        "listContent": [
-            {
-                "itemTitle": "Get Milk",
-                "itemContent": "2% Preferred"
-            },
-            {
-                "itemTitle": "Get Bread",
-                "itemContent": "Gluten-Free preferred"
-            }
-        ]
-    }
+// let lists = [
+//     {
+//         "listName": "list1",
+//         "listContent": [
+//             {
+//                 "itemTitle": "Give Dog A Bath",
+//                 "itemContent": "Remember to check for ticks"
+//             },
+//             {
+//                 "itemTitle": "Sweep Patio",
+//                 "itemContent": "Remember to compost leaves"
+//             }
+//         ]
+//     },
+//     {
+//         "listName": "list2",
+//         "listContent": [
+//             {
+//                 "itemTitle": "Get Milk",
+//                 "itemContent": "2% Preferred"
+//             },
+//             {
+//                 "itemTitle": "Get Bread",
+//                 "itemContent": "Gluten-Free preferred"
+//             }
+//         ]
+//     }
     
-]
+//]
 
 let newitemTitleInput = document.getElementById("newNoteTitleInput");
 
@@ -74,37 +74,37 @@ document.getElementById("cancelCreateNoteBtn").addEventListener("click", functio
 console.log("heyooo")
 
 
-let newListBtn = document.getElementById("newListBtn");
-let newListDiv = document.getElementById("createListDiv"); 
-newListBtn.addEventListener("click", function() {
-    newListDiv.classList.remove("hide");
-})
+// let newListBtn = document.getElementById("newListBtn");
+// let newListDiv = document.getElementById("createListDiv"); 
+// newListBtn.addEventListener("click", function() {
+//     newListDiv.classList.remove("hide");
+// })
 
-let createListBtn = document.getElementById("createListBtn")
-createListBtn.addEventListener("click", function() {
-    newListDiv.classList.add("hide");
-})
+// let createListBtn = document.getElementById("createListBtn")
+// createListBtn.addEventListener("click", function() {
+//     newListDiv.classList.add("hide");
+// })
 
 
 let listofitems = document.getElementById("listofitems");
 let chosenList
 
-function clearListOfItems() {
+// function clearListOfItems() {
 
-    while(listofitems.childNodes[3]) {
-        listofitems.removeChild(listofitems.childNodes[3])
-    }
-}
+//     while(listofitems.childNodes[3]) {
+//         listofitems.removeChild(listofitems.childNodes[3])
+//     }
+// }
 
 function renderList(list) {
-    clearListOfItems()
-
-    for (y = 0; y < lists.length; y++) {
-        if (lists[y]["listName"] == list) {
+    //clearListOfItems()
+    console.log(notes)
+    // for (y = 0; y < notes.length; y++) {
+        // if (lists[y]["listName"] == list) {
             chosenList = lists[y]["listContent"]
-        }
-    }
-    for (let i= chosenList.length - 1; i>=0; i--) {
+        // }
+    // }
+    for (let i= notes.length - 1; i>=0; i--) {
 
         let itemMain = document.createElement("div");
         itemMain.setAttribute("class", "itemMain") ;
@@ -118,7 +118,7 @@ function renderList(list) {
 
         //h3 here
         let itemTitle = document.createElement("h3");
-        itemTitle.innerHTML = chosenList[i]["itemTitle"]
+        itemTitle.innerHTML = notes[i]["itemTitle"]
         
 
         let itemContentDiv = document.createElement("div");
@@ -126,7 +126,7 @@ function renderList(list) {
 
         //p here
         let itemContent = document.createElement("p");
-        itemContent.innerHTML = chosenList[i]["itemContent"]
+        itemContent.innerHTML = notes[i]["itemContent"]
         itemContentDiv.appendChild(itemContent)
 
         let deleteBtnDiv = document.createElement("div");
@@ -227,7 +227,7 @@ function renderListOfLists() {
     addSelectListListeners()
 }
 
-renderListOfLists();
+// renderListOfLists();
 
 function addSelectListListeners() {
 
