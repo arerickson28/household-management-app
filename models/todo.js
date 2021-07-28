@@ -5,6 +5,7 @@ Todo.init(
   {
     id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
@@ -22,17 +23,15 @@ Todo.init(
     notes: {
       type: DataTypes.STRING,
       allowNull: false,
-
     },
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'user',
-        key: 'id'
-      }
-    }
-
+        model: "user",
+        key: "id",
+      },
+    },
   },
   {
     sequelize,

@@ -1,3 +1,9 @@
+const newFormHandler = async (event) => {
+  event.preventDefault();
+
+
+  //const task = document.querySelector("#newTask").value.trim();
+  //const notes = document.querySelector("#newNotes").value.trim();
 
 // let lists = [
 //     {
@@ -121,8 +127,21 @@ function renderList(list) {
         itemTitle.innerHTML = notes[i]["itemTitle"]
         
 
-        let itemContentDiv = document.createElement("div");
-        itemContentDiv.setAttribute("class", "itemContent") ;
+  if (task && notes) {
+    const response = await fetch("/api/todo", {
+      method: "POST",
+      body: JSON.stringify({ task, notes }),
+      headers: { "Content-Type": "application/json" },
+    });
+
+
+    /*if (response.ok) {
+      document.location.replace("/notepage");
+    } else {
+      alert("Failed to create task");
+    }
+  }
+};*/
 
         //p here
         let itemContent = document.createElement("p");
@@ -234,17 +253,4 @@ function addSelectListListeners() {
     let listz = document.getElementsByClassName("list")
     console.log(listz)
 
-    // let selectedListName = document.getElementById("listName")
-
-    for (let i = 0; i < listz.length; i++) {
-        
-        listz[i].addEventListener("click", function(event) {
-            event.preventDefault()
-            console.log(event.target)
-            selectedListName.innerHTML = event.target.firstChild.textContent
-            renderList(event.target.firstChild.textContent)
-        } )
-
-    }
-    
-}
+document.querySelector(".todo-form").addEventListener("submit", newFormHandler);

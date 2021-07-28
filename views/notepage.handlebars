@@ -1,4 +1,36 @@
 <main id="notesMain">
+  /* </section>
+
+  <div class="vertical-line2"></div>
+
+  <section id="itemSection">
+    <div>
+      <h1 id="listName">Todo List</h1><br />
+    </div>
+
+    <hr class="hr2" />
+
+    <div>
+      <form class="todo-form">
+        <label for="taskContent">Task:</label><br />
+        <input type="text" id="newTask" /><br />
+        <label for="noteContent">Notes:</label><br />
+        <input type="text" id="newNotes" /><br />
+        <button class="no-button" type="submit"><h2>New Note</h2></button><br />
+      </form>
+    </div>
+
+        {{#each todo}}
+            <div class="row mb-2">
+              <div class="col-md-8">
+                <h4><a href="/notes/{{todo.id}}">{{todo.task}}</a></h4>
+              </div>
+              <div class="col-md-4">
+                <button
+                  class="btn btn-sm btn-danger"
+                  data-id="{{todo.id}}"
+                >DELETE</button>
+              </div> */
     {{!-- <section id="listSection">
         <div id="groupName">
             <h1> Lists </h1>
@@ -55,29 +87,8 @@
                     <button id="cancelCreateNoteBtn">Cancel</button>
                 </div>
             </div>
-
-            {{#each notes}}
-            <div class="itemMain">
-                <div class="item">
-                    <div class="itemTitle">
-                        <h3>{{this.task}}</h3>
-                    </div>
-                    <div class="itemContent">
-                        <p>{{this.notes}}</p>
-                    </div>
-                    <div class="itemButton">
-                        <button class="deleteBtn">
-                            <h2>Delete</h2>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            {{/each}}
-        </div>
-
-
-
-    </section>
+        {{/each}}
+  </section>
 </main>
 
 <script src="/js/notes.js"></script>
