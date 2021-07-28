@@ -1,18 +1,21 @@
 <main id="notesMain">
     <section id="listSection">
         <div id="groupName">
-            <h1>&lt Group Name &gt</h1>
+            <h1> Lists </h1>
         </div>
 
         <hr class="hr1">
+        <button id="newListBtn">
+            <h2>New List</h2>
+        </button>
+        <hr class="hr1">
 
-        <div class="listoflists">
-            <div class="list">
-                <h3>&lt List 1 &gt</h3>
-            </div>
-
-            <div class="list">
-                <h3>&lt List 2 &gt</h3>
+        <div id="listoflists">
+            <div id="createListDiv" class="hide">
+                <input placeholder="List Title">
+                <button id="createListBtn">
+                    <h2>Create List</h2>
+                </button>
             </div>
         </div>
 
@@ -21,17 +24,19 @@
     <div class="vertical-line2"></div>
 
     <section id="itemSection">
-        <div id="listName">
-            <h1>&lt List 1 &gt</h1>
+        <div>
+            <h1 id="listName">{ Choose A List }</h1><br>
         </div>
 
         <hr class="hr2">
 
         <div>
-            <button id="newNoteBtn">New Note</button>
+            <button id="newNoteBtn">
+                <h2>New Note</h2>
+            </button>
         </div>
 
-        <div id="listofitems">
+        <div class="list1" id="listofitems">
 
             <div class="itemMain hide" id="newNote">
 
@@ -51,43 +56,28 @@
                 </div>
             </div>
 
-
+            {{#each notes}}
             <div class="itemMain">
-
                 <div class="item">
                     <div class="itemTitle">
-                        <h3>&lt Item 1 &gt</h3>
+                        <h3>{{this.task}}</h3>
                     </div>
-
                     <div class="itemContent">
-                        <p>Give the dog a bath</p>
+                        <p>{{this.notes}}</p>
                     </div>
-                </div>
-
-                <div class="itemButton">
-                    <button>Delete</button>
+                    <div class="itemButton">
+                        <button class="deleteBtn">
+                            <h2>Delete</h2>
+                        </button>
+                    </div>
                 </div>
             </div>
-
-            <div class="itemMain">
-
-                <div class="item">
-                    <div class="itemTitle">
-                        <h3>&lt Item 2 &gt</h3>
-                    </div>
-
-                    <div class="itemContent">
-                        <p>Sweep patio</p>
-                    </div>
-                </div>
-
-                <div class="itemButton">
-                    <button>Delete</button>
-                </div>
-            </div>
+            {{/each}}
         </div>
 
 
 
     </section>
 </main>
+
+<script src="js/notes.js"></script>

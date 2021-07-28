@@ -42,10 +42,7 @@ const loginFormHandler = async (event) => {
     }
   };
 
-const loginMenuEventListener = () => {
-    document.location.replace('/login');
-};
-  
+ 
   document
     .querySelector('.login-form')
     .addEventListener('submit', loginFormHandler);
@@ -54,6 +51,3 @@ const loginMenuEventListener = () => {
     .querySelector('.signup-form')
     .addEventListener('submit', signupFormHandler);
   
-  document
-    .querySelector('#login')
-    .addEventListener('click', loginMenuEventListener);
