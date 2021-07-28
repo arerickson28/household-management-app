@@ -10,8 +10,17 @@ const noteEventListener = () => {
     document.location.replace('/api/note');
 };
 
-document.querySelector('#homepage').addEventListener('click', homeEventListener);
 
-document.querySelector('#grocery').addEventListener('click', groceryEventListener);
+document
+    .querySelector('#homepage')
+    .addEventListener('click', homeEventListener);
 
-document.querySelector('#todo').addEventListener('click', noteEventListener);
+document
+    .querySelector('#grocery')
+    .addEventListener('click', groceryEventListener);
+
+document
+    .querySelector('#todo')
+    .addEventListener('click', noteEventListener);
+
+
