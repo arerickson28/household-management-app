@@ -17,14 +17,16 @@
 
     </section>
 
-    {{noteData}}
-
     <div class="vertical-line2"></div>
 
     <section id="itemSection">
         <div>
-            <h1 id="listName">{ Choose A List }</h1>
+            <h1 id="listName">{ Choose A List }</h1><br>
         </div>
+        {{logged_in}}
+        {{#each notes}}
+            <div class="">{{this.task}}</div>
+        {{/each}}
 
         <hr class="hr2">
 
@@ -59,5 +61,4 @@
     </section>
 </main>
 
-
-<!-- <script src="js/notes.js"></script> -->
+<script src="js/notes.js"></script>
