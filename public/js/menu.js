@@ -1,3 +1,7 @@
+const homeEventListener = () => {
+    document.location.replace('/');
+};
+
 const groceryEventListener = () => {
     document.location.replace('/api/grocery');
 };
@@ -5,6 +9,8 @@ const groceryEventListener = () => {
 const noteEventListener = () => {
     document.location.replace('/api/note');
 };
+
+document.querySelector('#homepage').addEventListener('click', homeEventListener);
 
 document.querySelector('#grocery').addEventListener('click', groceryEventListener);
 
