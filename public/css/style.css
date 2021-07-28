@@ -118,7 +118,7 @@ form {
 }
 
 .hr1 {
-    margin: 35px ;
+    margin: 20px ;
     width: 250px;
 }
 
@@ -164,4 +164,9 @@ textarea {
 
 .hide {
     display: none;
+}
+
+.list h3:hover {
+    background-color: grey;
+    color: white
 }
