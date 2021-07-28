@@ -1,7 +1,4 @@
 
-console.log(notes);
-
-
 let lists = [
     {
         "listName": "list1",
