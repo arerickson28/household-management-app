@@ -4,7 +4,10 @@
 
 ## Description
 
-🔍 Shared grocery lists:
+🔍 Shared grocery lists: 
+Users can keep an up to date shared grocery list with members of the household. Add items to the list and check them off on the fly. No more omitted items or doubled purchases at the grocery store.
+Shared To-Do lists:
+Coordinate household tasks with a shared to-do list. No more sticky notes peppering the kitchen counter. Check them off the shared list when they’re done.
 
 ## Table of Contents
 
@@ -18,7 +21,7 @@
 
 ## Installation
 
-💾 Users can keep an up to date shared grocery and todo list with members of the household. Add items to the list and check them off on the fly. No more omitted items or doubled purchases at the grocery store, and no more task gone undone or done twice.
+💾 Run these following commands: npm i, npm run seed, npm start
 
 ## Usage
 
