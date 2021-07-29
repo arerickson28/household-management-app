@@ -43,4 +43,26 @@ router.post("/post", async (req, res) => {
   }
 });
 
+router.delete("/:id", async (req, res) => {
+  console.log(req.params);
+  try {
+    const groceryData = await Grocery.destroy({
+      where: {
+        id: req.params.id,
+        user_id: req.session.user_id,
+      },
+    }); 
+
+    if (!groceryData) {
+      res.status(404).json({ message: 'No grocery product found with this id!' });
+      return;
+    }
+
+    res.status(200).json(groceryData);
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;

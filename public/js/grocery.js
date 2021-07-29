@@ -11,7 +11,7 @@ const postNewGroceryItem = async (event) => {
     console.log(quantity);
     console.log(user_id);
 
-    if(product && quantity && user_id) {
+    if (product && quantity && user_id) {
         const response = await fetch(`/api/grocery/post`, {
             method: 'POST',
             body: JSON.stringify({ product, quantity, user_id }),
@@ -28,10 +28,11 @@ const postNewGroceryItem = async (event) => {
     }
 }
 
+
 const deleteGroceryItem = async (event) => {
     event.preventDefault();
 
-    const data_id = document.querySelector("#deleteBtn").value.trim();;
+    const data_id = document.querySelector("#deleteBtn").value.trim();
 
     console.log(data_id);
 }
@@ -40,10 +41,14 @@ const deleteGroceryItem = async (event) => {
 const updateGroceryItem = async (event) => {
     event.preventDefault();
 
-
     const data_id = document.querySelector("#updateBtn").value.trim();;
 
     console.log(data_id);
+}
+
+
+function prepDeleteGrocery(id) {
+    console.log(id);
 }
 
 
@@ -61,11 +66,13 @@ document
         document.getElementById("addGrocery").classList.add("hide");
     })
 
+/*
 document
     .querySelectorAll("#deleteBtn")
     .forEach(button => {
         button.addEventListener("click", deleteGroceryItem);
     });
+*/
 
 /*
 document
@@ -73,8 +80,8 @@ document
     .forEach(button => {
         button.addEventListener("click", updateGroceryItem);
     });
-*/    
-    
+*/
+
 
 document
     .querySelector("#createGroceryBtn")
