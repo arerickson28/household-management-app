@@ -1,64 +1,8 @@
 <main id="notesMain">
-  /* </section>
-
-  <div class="vertical-line2"></div>
-
-  <section id="itemSection">
-    <div>
-      <h1 id="listName">Todo List</h1><br />
-    </div>
-
-    <hr class="hr2" />
-
-    <div>
-      <form class="todo-form">
-        <label for="taskContent">Task:</label><br />
-        <input type="text" id="newTask" /><br />
-        <label for="noteContent">Notes:</label><br />
-        <input type="text" id="newNotes" /><br />
-        <button class="no-button" type="submit"><h2>New Note</h2></button><br />
-      </form>
-    </div>
-
-        {{#each todo}}
-            <div class="row mb-2">
-              <div class="col-md-8">
-                <h4><a href="/notes/{{todo.id}}">{{todo.task}}</a></h4>
-              </div>
-              <div class="col-md-4">
-                <button
-                  class="btn btn-sm btn-danger"
-                  data-id="{{todo.id}}"
-                >DELETE</button>
-              </div> */
-    {{!-- <section id="listSection">
-        <div id="groupName">
-            <h1> Lists </h1>
-        </div>
-
-        <hr class="hr1">
-        <button id="newListBtn">
-            <h2>New List</h2>
-        </button>
-        <hr class="hr1"> --}}
-
-        <div id="listoflists">
-            <div id="createListDiv" class="hide">
-                <input placeholder="List Title">
-                <button id="createListBtn">
-                    <h2>Create List</h2>
-                </button>
-            </div>
-        </div>
-
-    </section>
-
-    <div class="vertical-line2"></div>
 
     <section id="itemSection">
-        <div>
-            <h1 id="listName"> Todo </h1><br>
-        </div>
+
+        <h1 id="listName">Todo List</h1>
 
         <hr class="hr2">
 
@@ -73,8 +17,9 @@
             <div class="itemMain hide" id="newNote">
 
                 <div class="item" id="newNoteItem">
+                    <input type="hidden" id="hidingInfoInput" value="{{user_id}}" />
                     <div class="itemTitle">
-                        <input id="newNoteTitleInput" placeholder="Note title">
+                        <input id="newNoteTitleInput" placeholder="Note title" />
                     </div>
 
                     <div class="itemContent">
@@ -83,12 +28,32 @@
                 </div>
 
                 <div class="itemButton">
-                    <button id="createNoteBtn">Create Note</button>
-                    <button id="cancelCreateNoteBtn">Cancel</button>
+                    <button id="createNoteBtn"><h3>Create Note</h3></button>
+                    <button id="cancelCreateNoteBtn"><h3>Cancel</h3></button>
                 </div>
             </div>
-        {{/each}}
-  </section>
+
+            {{#each notes}}
+            <div class="itemMain">
+                <div class="item">
+                    <div class="itemTitle">
+                        <h3>{{this.task}}</h3>
+                    </div>
+                    <div class="itemContent">
+                        <textarea id="">{{this.notes}}</textarea>
+                        <!-- <p>{{this.notes}}</p> -->
+                    </div>
+                    <div class="itemButton">
+                        <button class="deleteBtn" data-id="{{this.id}}"><h3>DELETE</h3></button>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+
+
+
+    </section>
 </main>
 
 <script src="/js/notes.js"></script>

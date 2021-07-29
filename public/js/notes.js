@@ -1,256 +1,48 @@
-const newFormHandler = async (event) => {
-  event.preventDefault();
+const postNewNote = async (event) => {
+    event.preventDefault();
 
+    const task = document.querySelector('#newNoteTitleInput').value.trim();
+    const notes = document.querySelector('#newNoteContentInput').value.trim();
+    const user_id = document.querySelector('#hidingInfoInput').value.trim();
 
-  //const task = document.querySelector("#newTask").value.trim();
-  //const notes = document.querySelector("#newNotes").value.trim();
+    console.log(task);
+    console.log(notes);
+    console.log(user_id);
 
-// let lists = [
-//     {
-//         "listName": "list1",
-//         "listContent": [
-//             {
-//                 "itemTitle": "Give Dog A Bath",
-//                 "itemContent": "Remember to check for ticks"
-//             },
-//             {
-//                 "itemTitle": "Sweep Patio",
-//                 "itemContent": "Remember to compost leaves"
-//             }
-//         ]
-//     },
-//     {
-//         "listName": "list2",
-//         "listContent": [
-//             {
-//                 "itemTitle": "Get Milk",
-//                 "itemContent": "2% Preferred"
-//             },
-//             {
-//                 "itemTitle": "Get Bread",
-//                 "itemContent": "Gluten-Free preferred"
-//             }
-//         ]
-//     }
-    
-//]
+    if(task && notes && user_id) {
+        const response = await fetch(`/api/note/post`, {
+            method: 'POST',
+            body: JSON.stringify({ task, notes, user_id }),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
 
-let newitemTitleInput = document.getElementById("newNoteTitleInput");
-
-let newitemContentInput = document.getElementById("newNoteContentInput");
-
-document.getElementById("newNoteBtn").addEventListener("click", function() {
-
-    document.getElementById("newNote").classList.remove("hide")
-   
-})
-
-let selectedListName = document.getElementById("listName")
-
-document.getElementById("createNoteBtn").addEventListener("click", function() {
-    document.getElementById("newNote").classList.add("hide");
-    
-    let newItemObj = {
-        itemTitle: newitemTitleInput.value,
-        itemContent: newitemContentInput.value
-    }
-    
-    for (let x = 0; x < lists.length; x++) {
-        if (lists[x]["listName"] == selectedListName.innerHTML ) {
-            lists[x]["listContent"].push(newItemObj)
+        if (response.ok) {
+            document.location.replace('/api/note');
+        } else {
+            alert('Failed to add note');
         }
     }
-    
-    newitemTitleInput.value = ""
-    newitemContentInput.value = ""
-
-    // Clearing List Of Items
-    while (listofitems.childNodes[3]) {
-        listofitems.removeChild(listofitems.childNodes[3]);
-    } ;
-    renderList(lists[0]["listContent"])
-})
-
-document.getElementById("cancelCreateNoteBtn").addEventListener("click", function() {
-    document.getElementById("newNote").classList.add("hide")
-    newitemTitleInput.value = ""
-    newitemContentInput.value = ""
-})
-
-console.log("heyooo")
-
-
-// let newListBtn = document.getElementById("newListBtn");
-// let newListDiv = document.getElementById("createListDiv"); 
-// newListBtn.addEventListener("click", function() {
-//     newListDiv.classList.remove("hide");
-// })
-
-// let createListBtn = document.getElementById("createListBtn")
-// createListBtn.addEventListener("click", function() {
-//     newListDiv.classList.add("hide");
-// })
-
-
-let listofitems = document.getElementById("listofitems");
-let chosenList
-
-// function clearListOfItems() {
-
-//     while(listofitems.childNodes[3]) {
-//         listofitems.removeChild(listofitems.childNodes[3])
-//     }
-// }
-
-function renderList(list) {
-    //clearListOfItems()
-    console.log(notes)
-    // for (y = 0; y < notes.length; y++) {
-        // if (lists[y]["listName"] == list) {
-            chosenList = lists[y]["listContent"]
-        // }
-    // }
-    for (let i= notes.length - 1; i>=0; i--) {
-
-        let itemMain = document.createElement("div");
-        itemMain.setAttribute("class", "itemMain") ;
-
-        let item = document.createElement("div");
-        item.setAttribute("class", "item") ;
-
-        let  itemTitleDiv = document.createElement("div");
-        itemTitleDiv.setAttribute("class", "itemTitle") ;
-
-
-        //h3 here
-        let itemTitle = document.createElement("h3");
-        itemTitle.innerHTML = notes[i]["itemTitle"]
-        
-
-  if (task && notes) {
-    const response = await fetch("/api/todo", {
-      method: "POST",
-      body: JSON.stringify({ task, notes }),
-      headers: { "Content-Type": "application/json" },
-    });
-
-
-    /*if (response.ok) {
-      document.location.replace("/notepage");
-    } else {
-      alert("Failed to create task");
-    }
-  }
-};*/
-
-        //p here
-        let itemContent = document.createElement("p");
-        itemContent.innerHTML = notes[i]["itemContent"]
-        itemContentDiv.appendChild(itemContent)
-
-        let deleteBtnDiv = document.createElement("div");
-        deleteBtnDiv.setAttribute("class", "itemButton") ;
-
-        //button here
-        let deleteBtn = document.createElement("button");
-        deleteBtn.setAttribute("class", "deleteBtn")
-        deleteBtn.innerHTML = "Delete"
-        
-
-        //stitch together html
-        itemTitleDiv.appendChild(itemTitle)
-        item.appendChild(itemTitleDiv)
-
-        itemContentDiv.appendChild(itemContent)
-        item.appendChild(itemContentDiv)
-
-
-        deleteBtnDiv.appendChild(deleteBtn)
-        item.appendChild(deleteBtnDiv)
-
-        itemMain.appendChild(item)
-
-        listofitems.appendChild(itemMain)
-
-        addDeleteListeners()
-
-    }
 }
 
-// renderList("list2")
-
-let deleteBtns
-function addDeleteListeners() {
-
-    deleteBtns = document.getElementsByClassName("deleteBtn")
-    console.log(deleteBtns)
-    console.log(deleteBtns[0])
-
-    // let currentList;
-    for (let i=0; i < deleteBtns.length; i++) {
-        deleteBtns[i].addEventListener("click", function() {
-            let deleteBtnContent = deleteBtns[i].parentNode.previousSibling.firstChild.textContent
-            console.log(deleteBtnContent);
-            let deleteBtnTitle = deleteBtns[i].parentNode.previousSibling.previousSibling.firstChild.textContent
-            console.log(deleteBtnTitle)
-    
-            let currentListName = listofitems.getAttribute("class");
-            console.log(currentListName);
-            let currentList ;
-    
-            for (z = 0; z < lists.length; z++) {
-                if (lists[z]["listName"] == currentListName) {
-                    console.log("yee")
-                    currentList = lists[z]["listContent"]
-                    console.log(currentList)
-                }
-            }
-            console.log(currentList);
-            console.log(lists)
-    
-            for (let j = 0; j < currentList.length; j++) {
-                console.log(currentList)
-                if (currentList[j]["itemTitle"] == deleteBtnTitle && currentList[j]["itemContent"] == deleteBtnContent) {
-                    console.log(currentList[j])
-                    console.log(currentList)
-                    currentList.pop(currentList[j])
-                }
-            }
-    
-            for (let w = 0; w < lists.length; w++) {
-                if (lists[w]["listName"] == currentListName) {
-                    renderList(lists[w]["listName"])
-                }
-            }
-        })
-    }
+const removeNote = async (event) => {
+    event.preventDefault();
 }
 
-let listOfListsDiv = document.getElementById("listoflists");
-function renderListOfLists() {
-
-    for (let i=lists.length -1; i>=0; i--) {
 
 
-        listNameDiv = document.createElement("div")
-        listNameDiv.setAttribute("class", "list")
 
-        listName = document.createElement("h3")
-        listName.innerHTML= lists[i]["listName"]
-        
+ document
+   .querySelector('.deleteBtn')
+   .addEventListener('submit', removeNote);
 
-        listNameDiv.appendChild(listName)
-        listOfListsDiv.appendChild(listNameDiv)
-        
-    }
-    addSelectListListeners()
-}
+document
+    .getElementById("newNoteBtn")
+    .addEventListener("click", function () {
+        document.getElementById("newNote").classList.remove("hide");
+    })
 
-// renderListOfLists();
-
-function addSelectListListeners() {
-
-    let listz = document.getElementsByClassName("list")
-    console.log(listz)
-
-document.querySelector(".todo-form").addEventListener("submit", newFormHandler);
+document
+    .querySelector("#createNoteBtn")
+    .addEventListener('click', postNewNote);
