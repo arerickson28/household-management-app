@@ -170,3 +170,7 @@ textarea {
     background-color: grey;
     color: white
 }
+
+#hidingInfoInput {
+    display: none;
+}

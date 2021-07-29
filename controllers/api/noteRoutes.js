@@ -4,21 +4,11 @@ const withAuth = require("../../utils/auth");
 
 router.get("/", withAuth, async (req, res) => {
   console.log(req.session.user_id);
-  //console.log(req.body);
   try {
     const noteData = await Todo.findAll({
       where: {
         user_id: req.session.user_id,
       },
-      include: [
-        {
-          model: User,
-          as: "user",
-          attributes: {
-            exclude: ["password"],
-          },
-        },
-      ],
     });
 
     const notes = noteData.map((note) => note.get({ plain: true }));
@@ -27,6 +17,7 @@ router.get("/", withAuth, async (req, res) => {
     res.render("notepage", {
       notes: notes,
       logged_in: true,
+      user_id: req.session.user_id
     });
   } catch (err) {
     res.status(500).json(err);
@@ -34,8 +25,6 @@ router.get("/", withAuth, async (req, res) => {
 });
 
 router.post("/post", async (req, res) => {
-  console.log(req.body);
-  console.log("HERE AT POST");
   try {
     const noteData = await Todo.create(req.body);
 

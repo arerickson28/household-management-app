@@ -1,23 +1,25 @@
 const postNewNote = async (event) => {
     event.preventDefault();
 
-    const title = document.querySelector('#newNoteTitleInput').value.trim();
+    const task = document.querySelector('#newNoteTitleInput').value.trim();
     const notes = document.querySelector('#newNoteContentInput').value.trim();
+    const user_id = document.querySelector('#hidingInfoInput').value.trim();
 
-    console.log(title);
+    console.log(task);
     console.log(notes);
+    console.log(user_id);
 
-    if(title && notes) {
+    if(task && notes && user_id) {
         const response = await fetch(`/api/note/post`, {
             method: 'POST',
-            body: JSON.stringify({title, notes}),
+            body: JSON.stringify({ task, notes, user_id }),
             headers: {
                 'Content-Type': 'application/json',
             },
-        })
+        });
 
         if (response.ok) {
-            document.location.replace('/note');
+            document.location.replace('/api/note');
         } else {
             alert('Failed to add note');
         }
@@ -27,28 +29,6 @@ const postNewNote = async (event) => {
 const removeNote = async (event) => {
     event.preventDefault();
 }
-
-
-// const newSearchHandler = async (event) => {
-//     event.preventDefault();
-
-//     const searchGroup = document.querySelector('#group-search');
-//     if (searchGroup) {
-//         const response = await fetch(`/api/groups`, {
-//             method: 'POST',
-//             body: JSON.stringify({id, group_name, type}),
-//             headers: {
-//                 'Content-Type': 'application/json',
-//             },
-//         });
-
-//         if (response.ok) {
-//             document.location.replace('/groups');
-//           } else {
-//             alert('Failed to create project');
-//           }
-//     }
-// };
 
 
 
