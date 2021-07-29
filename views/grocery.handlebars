@@ -1,0 +1,67 @@
+<main id="notesMain">
+
+    <section id="itemSection">
+
+        <h1 id="listName">Grocery List</h1>
+
+        <hr class="hr2">
+
+        <div>
+            <button id="newGroceryBtn">
+                <h2>Add Grocery Item</h2>
+            </button>
+        </div>
+
+        <div class="list1" id="listofitems">
+
+            <div class="itemMain hide" id="addGrocery">
+
+                <div class="item" id="newNoteItem">
+                    <input type="hidden" id="hidingGroceryInfo" value="{{user_id}}" />
+                    <div class="itemTitle">
+                        <input id="newGroceryProductInput" placeholder="Product" />
+                    </div>
+
+                    <div class="itemContent">
+                        <input id="newGroceryQuantityInput" placeholder="Quantity" />
+                    </div>
+
+                </div>
+
+                <div class="itemButton">
+                    <button id="createGroceryBtn">
+                        <h3>Add Grocery</h3>
+                    </button>
+                    <button id="cancelCreateGroceryBtn">
+                        <h3>Cancel</h3>
+                    </button>
+                </div>
+            </div>
+
+            {{#each groceries}}
+            <div class="itemMain">
+                <div class="item">
+                    <div class="itemTitle">
+                        <h3>{{this.product}}</h3>
+                    </div>
+                    <div class="itemContent">
+                        <div id="">{{this.quantity}}</div>
+                    </div>
+                    <div class="itemButton">
+                        <button id="deleteBtn" onClick="prepDeleteGrocery({{this.id}})">
+                            <h3>DELETE</h3>
+                        </button>
+                        <!-- <button id="updateBtn" value="{{this.id}}">
+                            <h3>UPDATE</h3>
+                        </button> -->
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+
+
+    </section>
+</main>
+
+<script src="/js/grocery.js"></script>
