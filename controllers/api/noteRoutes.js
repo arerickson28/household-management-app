@@ -3,7 +3,7 @@ const { User, Grocery, Todo } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 router.get("/", withAuth, async (req, res) => {
-  console.log(req.session.user_id, "ASDFFDSA");
+  console.log(req.session.user_id);
   //console.log(req.body);
   try {
     const noteData = await Todo.findAll({
@@ -24,7 +24,6 @@ router.get("/", withAuth, async (req, res) => {
     const notes = noteData.map((note) => note.get({ plain: true }));
     console.log(notes);
 
-    //res.status(200).json(noteData);
     res.render("notepage", {
       notes: notes,
       logged_in: true,
