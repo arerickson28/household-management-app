@@ -26,16 +26,16 @@ const postNewNote = async (event) => {
     }
 }
 
+/*
 const removeNote = async (event) => {
     event.preventDefault();
 }
 
-
-
-
- document
+document
    .querySelector('.deleteBtn')
    .addEventListener('submit', removeNote);
+
+*/
 
 document
     .getElementById("newNoteBtn")
