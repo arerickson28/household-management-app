@@ -9,10 +9,13 @@ router.get("/", withAuth, async (req, res) => {
       where: {
         user_id: req.session.user_id,
       },
+      order: [
+        ['id', 'DESC'],
+      ],
     });
 
     const notes = noteData.map((note) => note.get({ plain: true }));
-    console.log(notes);
+    //console.log(notes);
 
     res.render("notepage", {
       notes: notes,

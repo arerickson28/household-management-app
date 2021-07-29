@@ -171,6 +171,7 @@ textarea {
     color: white
 }
 
-#hidingInfoInput {
+#hidingInfoInput, 
+#hidingGroceryInfo {
     display: none;
 }

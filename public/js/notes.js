@@ -44,5 +44,11 @@ document
     })
 
 document
+    .getElementById("cancelCreateNoteBtn")
+    .addEventListener("click", function () {
+        document.getElementById("newNote").classList.add("hide");
+    })
+
+document
     .querySelector("#createNoteBtn")
     .addEventListener('click', postNewNote);
