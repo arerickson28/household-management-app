@@ -35,13 +35,11 @@ router.get("/", withAuth, async (req, res) => {
 
 router.post("/post", async (req, res) => {
   console.log(req.body);
+  console.log("HERE AT POST");
   try {
     const noteData = await Todo.create(req.body);
 
     req.session.save(() => {
-      //req.session.user_id = noteData.id;
-      //req.session.logged_in = true;
-
       res.status(200).json(noteData);
     });
   } catch (err) {
