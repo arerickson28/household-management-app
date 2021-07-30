@@ -19,7 +19,7 @@ Coordinate household tasks with a shared to-do list. No more sticky notes pepper
 - [Tests](#tests)
 - [Questions](#questions)
 
-## Installation
+## Installation Instructions
 
 💾 Run these following commands: npm i, npm run seed, npm start
 
